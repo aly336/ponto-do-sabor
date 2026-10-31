@@ -1,0 +1,12 @@
+{
+  "name": "restaurante-ponto-do-sabor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "check": "node --check dist/app.js && node --check dist/menu.js && node --check dist/motion.js && node --check dist/smooth-scroll.js && node --check server.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

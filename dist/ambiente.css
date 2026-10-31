@@ -1,0 +1,149 @@
+/* Revision requested by the client: a tactile kitchen, a wider table and
+   layered movement. The original type and commercial content stay intact. */
+.hero{height:clamp(760px,62vw,1060px);background:var(--yellow)}
+.hero-atmosphere{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.hero-kitchen-layer{position:absolute;inset:-6%;background:url('assets/cozinha-mineira.webp') center 52%/cover no-repeat;opacity:.6;transform:scale(1.07)}
+.hero-atmosphere::after{content:"";position:absolute;inset:0;background:rgba(255,210,27,.72)}
+.hero-stage{z-index:1;overflow:visible}
+.hero-food{left:27%;top:30%;bottom:auto;width:46%;max-width:none;z-index:1;pointer-events:auto}
+.hero-food img{width:100%;aspect-ratio:3/2;height:auto;user-select:none;-webkit-user-drag:none}
+.hero-table{display:block;transform-origin:50% 60%;text-decoration:none;outline-offset:12px}
+.hero-table:active{transform:scale(.985)!important}
+.hero-title{left:8%;top:23%;width:28%;z-index:2}
+.hero-title .lettering{transform:scaleX(.71)}
+.hero-message{right:5.5%;top:23%;width:24%;z-index:2}
+.hero-message .lettering{transform:scaleX(.73)}
+.hero-note{left:9%;bottom:11%;z-index:3}
+.hero-order{right:9%;bottom:10%;z-index:3}
+.checker{display:none!important}
+
+/* A photographic paper texture, not a CSS pattern. */
+.menu-section{position:relative;isolation:isolate;width:100%;max-width:none;background:#fbf8ef;overflow:clip}
+.menu-section::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:url('assets/papel-cardapio.webp') 0 0/650px 650px repeat;opacity:.6}
+.menu-section>*{max-width:1440px;margin-inline:auto}
+.menu-section .menu-notice{max-width:1440px}
+.menu-notice{padding-right:min(45%,600px)}
+.product-image{overflow:hidden}
+.photo-drift,.story-drift{width:100%;height:100%;transform-origin:center}
+.photo-drift img,.story-drift img{width:100%;height:100%;object-fit:cover}
+
+/* Each half is rebuilt to cover the actual viewport, including after font
+   loading and resize. Translate exactly one complete, equal-sized half. */
+.ribbon-track,.has-script .ribbon-track{display:flex;gap:0;align-items:center;width:max-content;animation:none}
+.ribbon-group{display:flex;align-items:center;flex:0 0 auto}
+.ribbon-phrase{display:flex;align-items:center;flex:0 0 auto;gap:28px;white-space:nowrap;padding-right:28px;font:700 32px/1.2 var(--display)}
+.has-script .ribbon-ready .ribbon-track{animation:ribbon-seamless var(--ribbon-duration,40s) linear infinite}
+.has-script.motion-paused .ribbon-ready .ribbon-track,.ribbon:focus-within .ribbon-track{animation-play-state:paused}
+@keyframes ribbon-seamless{to{transform:translate3d(-50%,0,0)}}
+
+/* A bounded two-beat scroll scene. The photograph stays while the copy
+   advances naturally; nothing captures or changes native scroll input. */
+.story-section{padding-block:90px}
+.story-shell{grid-template-columns:1.15fr 1fr;gap:clamp(48px,7vw,112px)}
+.story-visual{top:clamp(28px,7vh,80px)}
+.story-photo{aspect-ratio:1.12;max-height:72svh}
+.story-photo .story-drift img{object-position:50% 60%}
+.story-copy{min-width:0}
+.story-beat{min-height:60svh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:25px 0 45px}
+.story-beat:first-child{padding-top:10px;justify-content:flex-start;min-height:60svh}
+.story-beat>p{font-size:17px;max-width:35ch}
+.story-beat .story-invitation{font-family:var(--display);font-size:clamp(34px,3.4vw,52px);line-height:1;letter-spacing:-.02em;color:var(--yellow);margin-top:40px}
+.story-beat .flavor-card{width:100%;margin-top:0}
+.story-beat>.button{margin-top:0}
+.story-beat .flip-toggle{margin-bottom:32px}
+.story-meter{height:5px;margin-top:20px;background:#45402c;overflow:hidden}
+.story-meter-fill{display:block;height:100%;background:var(--yellow);transform:scaleX(0);transform-origin:left}
+.photo-caption{margin-top:12px}
+
+.film-section{background:#fbf8ef}
+.film-frame{height:auto;background:#fbf8ef;overflow:hidden}
+.film-frame video{display:block;width:100%;height:clamp(360px,47vw,740px);object-fit:cover;object-position:center}
+.film-frame figcaption{position:static;max-width:none;min-height:48px;padding:12px var(--gutter);background:none;color:var(--ink);font-size:13px}
+.film-toggle{bottom:70px}
+.address-poster{padding-bottom:40px}
+
+@media(hover:hover) and (pointer:fine){.hero-table{cursor:pointer}.hero-table:focus-visible{outline-color:var(--red)}.product .select-item:hover .icon{transform:rotate(90deg)}.select-item .icon{transition:transform .2s var(--ease-ui)}}
+@media(min-width:701px) and (max-width:1100px){
+  .hero{height:790px}.hero-title{left:5%;top:24%;font-size:12vw}.hero-message{right:4%;top:24%;font-size:9vw}
+  .hero-food{left:20%;top:40%;width:60%}.hero-note{left:6%;bottom:7%}.hero-order{right:7%;bottom:8%;width:140px}
+  .story-shell{gap:38px}.story-copy h2{font-size:62px}.story-beat{min-height:50svh}.story-beat:first-child{min-height:50svh}
+}
+@media(max-width:700px){
+  .hero{height:800px}.hero-atmosphere::after{background:rgba(255,210,27,.73)}.hero-kitchen-layer{background-position:64% center}
+  .hero-stage{overflow:visible}.hero-title{top:137px;left:7%;width:56%;font-size:17.8vw}
+  .hero-title .lettering,.hero-message .lettering{transform:none}
+  .hero-message{top:161px;right:7%;width:32%;font-size:7.5vw}
+  .hero-food{left:-6%;top:290px;bottom:auto;width:112%;z-index:1}
+  .hero-note{top:106px;left:7%;bottom:auto}.hero-note>a{font-size:13px}
+  .hero-order{right:8%;bottom:40px;width:124px}
+  .hero-atmosphere{overflow:hidden}.hero{overflow:clip}
+  .ribbon-phrase{font-size:26px;gap:20px;padding-right:20px}
+  .menu-notice{padding-right:0}
+  .story-section{padding-block:64px}.story-shell{display:flex;gap:36px}
+  .story-visual{order:0;position:relative;top:auto;width:100%}
+  .story-photo{aspect-ratio:1.18;max-height:none}
+  .story-copy h2{font-size:56px}.story-beat,.story-beat:first-child{min-height:0;padding:0 0 34px}
+  .story-beat>p{font-size:16px}.story-beat .story-invitation{font-size:36px;margin-top:28px}
+  .story-beat:last-child{padding-bottom:0}.story-beat .flavor-card{margin-top:0}
+  .story-meter{display:none}
+  .film-frame video{height:auto;aspect-ratio:4/3;object-fit:cover}
+  .film-frame figcaption{font-size:13px;padding:12px 20px}
+  .film-toggle{bottom:66px;right:20px}
+  body:not(.has-script) .hero{height:850px}body:not(.has-script) .hero-food{top:340px;bottom:auto}
+  body:not(.has-script) .hero-title{top:185px}body:not(.has-script) .hero-message{top:208px}body:not(.has-script) .hero-note{top:154px}
+}
+@media(max-width:360px){
+  .hero{height:735px}.hero-title{top:135px;font-size:17.6vw}.hero-message{top:152px}
+  .hero-food{top:270px;left:-8%;width:116%}.hero-order{width:108px;bottom:42px}.hero-note{top:104px}
+  .story-copy h2{font-size:50px}
+}
+@media(min-width:500px) and (max-width:700px){.hero{height:980px}.hero-title{top:160px}.hero-message{top:190px}.hero-food{top:360px;left:0;width:100%}.hero-order{width:150px;bottom:46px}}
+@media(prefers-reduced-motion:reduce){
+  .hero-kitchen-layer,.hero-table,.parallax-layer,.photo-drift,.story-drift,.hero-title,.hero-message{transform:none!important}
+  .has-script .ribbon-ready .ribbon-track{animation:none!important}
+  .story-visual{position:relative;top:auto}.story-beat,.story-beat:first-child{min-height:0;padding-bottom:40px}.story-meter{display:none}
+}
+.motion-paused .hero-kitchen-layer,.motion-paused .hero-table,.motion-paused .photo-drift,.motion-paused .story-drift{transform:none!important}
+
+/* The complete table has feet and a contact shadow: keep its full silhouette
+   inside the kitchen, with a more distant framing than the original plate. */
+.hero-food{left:28%;top:25%;width:44%}
+.hero-food img{aspect-ratio:1;object-fit:contain}
+.menu-section>.menu-notice{max-width:60ch;margin-inline:0;margin-left:max(0px,calc((100% - 1440px)/2));padding-right:0}
+@media(min-width:701px) and (max-width:1100px){.hero-food{left:23%;top:34%;width:54%}}
+@media(max-width:700px){
+  .hero-food{left:0;top:270px;width:100%}
+  .hero-note>p{display:block;position:absolute;top:550px;left:0;width:178px;margin:0;font-size:14px;line-height:1.45}
+}
+@media(max-width:360px){.hero-food{left:0;top:250px;width:100%}.hero-note>p{top:495px;width:154px;font-size:13px}}
+@media(min-width:500px) and (max-width:700px){.hero-food{left:10%;top:330px;width:80%}.hero-note>p{top:740px}}
+@media(max-width:700px){.hero-note>p br{display:initial}}
+
+/* Revision 3: original hand photograph, quiet cursor and motion distributed
+   through the menu, story, film, address and footer. */
+.hero{height:clamp(720px,58vw,1000px)}
+.hero-food{left:32.5%;top:auto;bottom:0;width:35%;z-index:1}
+.hero-food img{aspect-ratio:2/3;object-fit:contain}
+.hero-title,.hero-message{transform:none!important}
+.film-stage{max-width:1600px;margin-inline:auto;padding-block:18px;overflow:clip}
+.film-media{width:100%}
+.film-frame video{width:100%;height:auto;aspect-ratio:1672/940;object-fit:contain}
+.film-toggle{right:max(var(--gutter),calc((100% - 1600px)/2 + 20px));bottom:82px}
+.visit-poster-drift{width:100%;max-width:520px;justify-self:end;transform-origin:center}
+.visit-poster-drift .address-poster{width:100%;max-width:none}
+.footer-wordmark{overflow:clip;margin-top:40px;padding-block:8px}
+.footer-wordmark .footer-name{margin:0}
+@media(min-width:701px) and (max-width:1100px){.hero{height:760px}.hero-food{left:31%;top:auto;bottom:0;width:38%}}
+@media(max-width:700px){
+  .hero{height:850px}.hero-food{left:0;top:auto;bottom:0;width:100%}
+  .hero-note>p{display:none}.hero-order{bottom:50px}
+  .film-stage{padding-block:16px}.film-frame video{aspect-ratio:1672/940;object-fit:contain}
+  .film-toggle{right:20px;bottom:78px}
+  .visit-poster-drift{max-width:400px;justify-self:center;width:calc(100% - 16px)}
+  .footer-wordmark{margin-top:28px}
+  body:not(.has-script) .hero-food{top:auto;bottom:0}
+}
+@media(max-width:360px){.hero{height:720px}.hero-food{left:0;top:auto;bottom:0;width:100%}}
+@media(min-width:500px) and (max-width:700px){.hero{height:1050px}.hero-food{left:12.5%;top:auto;bottom:0;width:75%}}
+@media(prefers-reduced-motion:reduce){.film-media,.visit-poster-drift,.footer-name{transform:none!important}}
+.motion-paused .film-media,.motion-paused .visit-poster-drift,.motion-paused .footer-name{transform:none!important}
